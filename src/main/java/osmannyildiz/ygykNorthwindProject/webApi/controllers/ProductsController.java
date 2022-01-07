@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import osmannyildiz.coreProject.utilities.results.DataResult;
+import osmannyildiz.coreProject.utilities.results.Result;
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
-import osmannyildiz.ygykNorthwindProject.core.utilities.results.DataResult;
-import osmannyildiz.ygykNorthwindProject.core.utilities.results.Result;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
 
 @RestController

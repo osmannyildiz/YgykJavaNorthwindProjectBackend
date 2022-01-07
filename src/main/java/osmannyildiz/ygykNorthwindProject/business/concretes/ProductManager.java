@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import osmannyildiz.coreProject.utilities.results.DataResult;
+import osmannyildiz.coreProject.utilities.results.Result;
+import osmannyildiz.coreProject.utilities.results.SuccessDataResult;
+import osmannyildiz.coreProject.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
-import osmannyildiz.ygykNorthwindProject.core.utilities.results.DataResult;
-import osmannyildiz.ygykNorthwindProject.core.utilities.results.Result;
-import osmannyildiz.ygykNorthwindProject.core.utilities.results.SuccessDataResult;
-import osmannyildiz.ygykNorthwindProject.core.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.dataAccess.abstracts.IProductDao;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
 
