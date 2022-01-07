@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
+import osmannyildiz.ygykNorthwindProject.core.utilities.results.DataResult;
+import osmannyildiz.ygykNorthwindProject.core.utilities.results.Result;
+import osmannyildiz.ygykNorthwindProject.core.utilities.results.SuccessDataResult;
+import osmannyildiz.ygykNorthwindProject.core.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.dataAccess.abstracts.IProductDao;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
 
@@ -20,8 +24,14 @@ public class ProductManager implements IProductService {
 	}
 
 	@Override
-	public List<Product> getAll() {
-		return productDao.findAll();
+	public DataResult<List<Product>> getAll() {
+		return new SuccessDataResult<List<Product>>(productDao.findAll(), "Ürünler listelendi.");
+	}
+
+	@Override
+	public Result add(Product product) {
+		productDao.save(product);
+		return new SuccessResult("Ürün eklendi.");
 	}
 	
 }
