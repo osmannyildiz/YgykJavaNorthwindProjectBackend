@@ -54,9 +54,8 @@ public class ProductManager implements IProductService {
 	}
 
 	@Override
-	public Result add(Product product) {
-		productDao.save(product);
-		return new SuccessResult("Ürün eklendi.");
+	public DataResult<Product> add(Product product) {
+		return new SuccessDataResult<Product>(productDao.save(product), "Ürün eklendi.");
 	}
 
 	@Override

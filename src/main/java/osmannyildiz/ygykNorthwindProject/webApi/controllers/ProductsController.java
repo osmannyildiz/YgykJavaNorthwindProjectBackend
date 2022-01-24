@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import osmannyildiz.coreProject.utilities.results.DataResult;
 import osmannyildiz.coreProject.utilities.results.Result;
+import osmannyildiz.coreProject.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
 
@@ -43,7 +44,8 @@ public class ProductsController {
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody Product product) {
-		return productService.add(product);
+		DataResult<Product> addResult = productService.add(product); 
+		return new SuccessResult(addResult.getMessage());
 	}
 	
 	@GetMapping("/getByName")
