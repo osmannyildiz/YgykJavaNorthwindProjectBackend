@@ -15,6 +15,7 @@ import osmannyildiz.coreProject.utilities.results.Result;
 import osmannyildiz.coreProject.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
+import osmannyildiz.ygykNorthwindProject.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -61,6 +62,11 @@ public class ProductsController {
 	@GetMapping("/getByNameContains")
 	public DataResult<List<Product>> getByNameContains(@RequestParam String nameSubstring) {
 		return productService.getByNameContains(nameSubstring);
+	}
+	
+	@GetMapping("/getProductsWithCategory")
+	public DataResult<List<ProductWithCategoryDto>> getProductsWithCategory() {
+		return productService.getProductsWithCategory();
 	}
 
 }

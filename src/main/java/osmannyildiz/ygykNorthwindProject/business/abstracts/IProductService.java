@@ -5,6 +5,7 @@ import java.util.List;
 import osmannyildiz.coreProject.utilities.results.DataResult;
 import osmannyildiz.coreProject.utilities.results.Result;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
+import osmannyildiz.ygykNorthwindProject.entities.dtos.ProductWithCategoryDto;
 
 public interface IProductService {
 	
@@ -22,5 +23,7 @@ public interface IProductService {
 	DataResult<List<Product>> getByNameStartsWith(String nameStart);
 	
 	DataResult<List<Product>> getByNameAndCategoryIdButWithQuery(String name, int categoryId);
+	
+	DataResult<List<ProductWithCategoryDto>> getProductsWithCategory();
 	
 }

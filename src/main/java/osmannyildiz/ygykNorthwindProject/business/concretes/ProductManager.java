@@ -15,6 +15,7 @@ import osmannyildiz.coreProject.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
 import osmannyildiz.ygykNorthwindProject.dataAccess.abstracts.IProductDao;
 import osmannyildiz.ygykNorthwindProject.entities.concretes.Product;
+import osmannyildiz.ygykNorthwindProject.entities.dtos.ProductWithCategoryDto;
 
 @Service
 public class ProductManager implements IProductService {
@@ -91,6 +92,11 @@ public class ProductManager implements IProductService {
 	@Override
 	public DataResult<List<Product>> getByNameAndCategoryIdButWithQuery(String name, int categoryId) {
 		return new SuccessDataResult<List<Product>>(productDao.getByNameAndCategoryIdButWithQuery(name, categoryId), "Ürünler listelendi.");
+	}
+
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getProductsWithCategory() {
+		return new SuccessDataResult<List<ProductWithCategoryDto>>(productDao.getProductsWithCategory(), "Ürünler kategorileriyle listelendi.");
 	}
 	
 }
