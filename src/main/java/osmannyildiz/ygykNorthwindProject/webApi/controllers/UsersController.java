@@ -35,12 +35,6 @@ public class UsersController {
 		this.userService = userService;
 	}
 	
-	@PostMapping("/add")
-	public ResponseEntity<Result> add(@RequestBody @Valid User user) {
-		DataResult<User> addResult = userService.add(user); 
-		return ResponseEntity.ok(new SuccessResult(addResult.getMessage()));
-	}
-	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorDataResult<Object> handleValidationExceptions(MethodArgumentNotValidException exception) {
@@ -49,6 +43,12 @@ public class UsersController {
 			errors.put(fieldError.getField(), fieldError.getDefaultMessage());
 		}
 		return new ErrorDataResult<Object>(errors, "Lütfen doğrulama hatalarını düzeltip tekrar deneyin.");
+	}
+	
+	@PostMapping("/add")
+	public ResponseEntity<Result> add(@RequestBody @Valid User user) {
+		DataResult<User> addResult = userService.add(user); 
+		return ResponseEntity.ok(new SuccessResult(addResult.getMessage()));
 	}
 
 }
