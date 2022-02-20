@@ -45,10 +45,9 @@ public class ProductsController {
 		return productService.getAllWithSortingByName(descending);
 	}
 	
-	@PostMapping("/add")
-	public Result add(@RequestBody Product product) {
-		DataResult<Product> addResult = productService.add(product); 
-		return new SuccessResult(addResult.getMessage());
+	@GetMapping("/getById")
+	public DataResult<Product> getById(@RequestParam int id) {
+		return productService.getById(id);
 	}
 	
 	@GetMapping("/getByName")
@@ -69,6 +68,12 @@ public class ProductsController {
 	@GetMapping("/getProductsWithCategory")
 	public DataResult<List<ProductWithCategoryDto>> getProductsWithCategory() {
 		return productService.getProductsWithCategory();
+	}
+	
+	@PostMapping("/add")
+	public Result add(@RequestBody Product product) {
+		DataResult<Product> addResult = productService.add(product); 
+		return new SuccessResult(addResult.getMessage());
 	}
 
 }

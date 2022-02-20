@@ -98,5 +98,11 @@ public class ProductManager implements IProductService {
 	public DataResult<List<ProductWithCategoryDto>> getProductsWithCategory() {
 		return new SuccessDataResult<List<ProductWithCategoryDto>>(productDao.getProductsWithCategory(), "Ürünler kategorileriyle listelendi.");
 	}
+
+	@Override
+	public DataResult<Product> getById(int id) {
+		Product entity = productDao.findById(id).get();
+		return new SuccessDataResult<Product>(entity, "Ürün getirildi.");
+	}
 	
 }
