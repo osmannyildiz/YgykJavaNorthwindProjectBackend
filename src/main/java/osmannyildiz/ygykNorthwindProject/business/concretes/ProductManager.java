@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import osmannyildiz.coreProject.utilities.results.DataResult;
+import osmannyildiz.coreProject.utilities.results.ErrorDataResult;
 import osmannyildiz.coreProject.utilities.results.Result;
 import osmannyildiz.coreProject.utilities.results.SuccessDataResult;
 import osmannyildiz.coreProject.utilities.results.SuccessResult;
@@ -56,6 +57,9 @@ public class ProductManager implements IProductService {
 
 	@Override
 	public DataResult<Product> add(Product product) {
+		if (product.getName().equalsIgnoreCase("bitcoin")) {
+			return new ErrorDataResult<Product>("Marketimizde Bitcoin satışı yapılmasına izin verilmemektedir. Anlayışınız için teşekkür ederiz.");
+		}
 		return new SuccessDataResult<Product>(productDao.save(product), "Ürün eklendi.");
 	}
 

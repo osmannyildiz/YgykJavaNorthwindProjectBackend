@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import osmannyildiz.coreProject.utilities.results.DataResult;
+import osmannyildiz.coreProject.utilities.results.ErrorResult;
 import osmannyildiz.coreProject.utilities.results.Result;
 import osmannyildiz.coreProject.utilities.results.SuccessResult;
 import osmannyildiz.ygykNorthwindProject.business.abstracts.IProductService;
@@ -72,7 +73,11 @@ public class ProductsController {
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody Product product) {
-		DataResult<Product> addResult = productService.add(product); 
+		DataResult<Product> addResult = productService.add(product);
+		if (!addResult.isSuccess()) {
+			return new ErrorResult(addResult.getMessage());
+		}
+		
 		return new SuccessResult(addResult.getMessage());
 	}
 
