@@ -44,15 +44,16 @@ public class ProductManager implements IProductService {
 
 	@Override
 	public DataResult<List<Product>> getAllWithSortingByName(boolean descending) {
-		Sort.Direction direction = Sort.Direction.ASC;
 		if (descending)
-			direction = Sort.Direction.DESC;
-		
-		Sort sort = Sort.by(direction, "name");
-		return new SuccessDataResult<List<Product>>(
-			productDao.findAll(sort), 
-			"Ürünler listelendi."
-		);
+			return new SuccessDataResult<List<Product>>(
+				productDao.getByOrderByNameDesc(), 
+				"Ürünler azalan isim sırasına göre listelendi."
+			);
+		else
+			return new SuccessDataResult<List<Product>>(
+				productDao.getByOrderByNameAsc(), 
+				"Ürünler artan isim sırasına göre listelendi."
+			);
 	}
 
 	@Override

@@ -29,15 +29,16 @@ public class CategoryManager implements ICategoryService {
 	
 	@Override
 	public DataResult<List<Category>> getAllWithSortingByName(boolean descending) {
-		Sort.Direction direction = Sort.Direction.ASC;
 		if (descending)
-			direction = Sort.Direction.DESC;
-		
-		Sort sort = Sort.by(direction, "name");
-		return new SuccessDataResult<List<Category>>(
-			categoryDao.findAll(sort), 
-			"Kategoriler listelendi."
-		);
+			return new SuccessDataResult<List<Category>>(
+				categoryDao.getByOrderByNameDesc(), 
+				"Kategoriler azalan isim sırasına göre listelendi."
+			);
+		else
+			return new SuccessDataResult<List<Category>>(
+				categoryDao.getByOrderByNameAsc(), 
+				"Kategoriler artan isim sırasına göre listelendi."
+			);
 	}
 	
 	@Override
