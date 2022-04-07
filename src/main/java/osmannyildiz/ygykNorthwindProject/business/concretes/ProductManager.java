@@ -46,12 +46,12 @@ public class ProductManager implements IProductService {
 	public DataResult<List<Product>> getAllWithSortingByName(boolean descending) {
 		if (descending)
 			return new SuccessDataResult<List<Product>>(
-				productDao.getByOrderByNameDesc(), 
+				productDao.getAllByOrderByNameDesc(), 
 				"Ürünler azalan isim sırasına göre listelendi."
 			);
 		else
 			return new SuccessDataResult<List<Product>>(
-				productDao.getByOrderByNameAsc(), 
+				productDao.getAllByOrderByNameAsc(), 
 				"Ürünler artan isim sırasına göre listelendi."
 			);
 	}
@@ -75,33 +75,33 @@ public class ProductManager implements IProductService {
 	}
 
 	@Override
-	public DataResult<List<Product>> getByNameOrCategoryId(String name, int categoryId) {
-		return new SuccessDataResult<List<Product>>(productDao.getByNameOrCategoryId(name, categoryId), "Ürünler listelendi.");
+	public DataResult<List<Product>> getAllByNameOrCategoryId(String name, int categoryId) {
+		return new SuccessDataResult<List<Product>>(productDao.getAllByNameOrCategoryId(name, categoryId), "Ürünler listelendi.");
 	}
 
 	@Override
-	public DataResult<List<Product>> getByCategoryIdIn(List<Integer> categoryIds) {
-		return new SuccessDataResult<List<Product>>(productDao.getByCategoryIdIn(categoryIds), "Ürünler listelendi.");
+	public DataResult<List<Product>> getAllByCategoryIdIn(List<Integer> categoryIds) {
+		return new SuccessDataResult<List<Product>>(productDao.getAllByCategoryIdIn(categoryIds), "Ürünler listelendi.");
 	}
 
 	@Override
-	public DataResult<List<Product>> getByNameContains(String nameSubstring) {
-		return new SuccessDataResult<List<Product>>(productDao.getByNameContains(nameSubstring), "Ürünler listelendi.");
+	public DataResult<List<Product>> getAllByNameContains(String nameSubstring) {
+		return new SuccessDataResult<List<Product>>(productDao.getAllByNameContains(nameSubstring), "Ürünler listelendi.");
 	}
 
 	@Override
-	public DataResult<List<Product>> getByNameStartsWith(String nameStart) {
-		return new SuccessDataResult<List<Product>>(productDao.getByNameStartsWith(nameStart), "Ürünler listelendi.");
+	public DataResult<List<Product>> getAllByNameStartsWith(String nameStart) {
+		return new SuccessDataResult<List<Product>>(productDao.getAllByNameStartsWith(nameStart), "Ürünler listelendi.");
 	}
 
 	@Override
-	public DataResult<List<Product>> getByNameAndCategoryIdButWithQuery(String name, int categoryId) {
-		return new SuccessDataResult<List<Product>>(productDao.getByNameAndCategoryIdButWithQuery(name, categoryId), "Ürünler listelendi.");
+	public DataResult<List<Product>> getAllByNameAndCategoryIdButWithQuery(String name, int categoryId) {
+		return new SuccessDataResult<List<Product>>(productDao.getAllByNameAndCategoryIdButWithQuery(name, categoryId), "Ürünler listelendi.");
 	}
 
 	@Override
-	public DataResult<List<ProductWithCategoryDto>> getProductsWithCategory() {
-		return new SuccessDataResult<List<ProductWithCategoryDto>>(productDao.getProductsWithCategory(), "Ürünler kategorileriyle listelendi.");
+	public DataResult<List<ProductWithCategoryDto>> getAllProductsWithCategory() {
+		return new SuccessDataResult<List<ProductWithCategoryDto>>(productDao.getAllProductsWithCategory(), "Ürünler kategorileriyle listelendi.");
 	}
 
 	@Override

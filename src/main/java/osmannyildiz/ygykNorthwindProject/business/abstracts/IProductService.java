@@ -18,13 +18,13 @@ public interface IProductService {
 	DataResult<Product> getById(int id);
 	DataResult<Product> getByName(String name);
 	DataResult<Product> getByNameAndCategoryId(String name, int categoryId);
-	DataResult<List<Product>> getByNameOrCategoryId(String name, int categoryId);
-	DataResult<List<Product>> getByCategoryIdIn(List<Integer> categoryIds);
-	DataResult<List<Product>> getByNameContains(String nameSubstring);
-	DataResult<List<Product>> getByNameStartsWith(String nameStart);
+	DataResult<List<Product>> getAllByNameOrCategoryId(String name, int categoryId);
+	DataResult<List<Product>> getAllByCategoryIdIn(List<Integer> categoryIds);
+	DataResult<List<Product>> getAllByNameContains(String nameSubstring);
+	DataResult<List<Product>> getAllByNameStartsWith(String nameStart);
 	
-	DataResult<List<Product>> getByNameAndCategoryIdButWithQuery(String name, int categoryId);
+	DataResult<List<Product>> getAllByNameAndCategoryIdButWithQuery(String name, int categoryId);
 	
-	DataResult<List<ProductWithCategoryDto>> getProductsWithCategory();
+	DataResult<List<ProductWithCategoryDto>> getAllProductsWithCategory();
 	
 }

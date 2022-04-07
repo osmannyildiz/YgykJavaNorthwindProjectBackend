@@ -62,13 +62,13 @@ public class ProductsController {
 	}
 	
 	@GetMapping("/getByNameContains")
-	public DataResult<List<Product>> getByNameContains(@RequestParam String nameSubstring) {
-		return productService.getByNameContains(nameSubstring);
+	public DataResult<List<Product>> getAllByNameContains(@RequestParam String nameSubstring) {
+		return productService.getAllByNameContains(nameSubstring);
 	}
 	
 	@GetMapping("/getProductsWithCategory")
-	public DataResult<List<ProductWithCategoryDto>> getProductsWithCategory() {
-		return productService.getProductsWithCategory();
+	public DataResult<List<ProductWithCategoryDto>> getAllProductsWithCategory() {
+		return productService.getAllProductsWithCategory();
 	}
 	
 	@PostMapping("/add")

@@ -8,7 +8,7 @@ import osmannyildiz.ygykNorthwindProject.entities.concretes.Category;
 
 public interface ICategoryDao extends JpaRepository<Category, Integer> {
 	
-	List<Category> getByOrderByNameAsc();
-	List<Category> getByOrderByNameDesc();
+	List<Category> getAllByOrderByNameAsc();
+	List<Category> getAllByOrderByNameDesc();
 
 }

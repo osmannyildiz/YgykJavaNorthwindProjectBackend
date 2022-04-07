@@ -31,12 +31,12 @@ public class CategoryManager implements ICategoryService {
 	public DataResult<List<Category>> getAllWithSortingByName(boolean descending) {
 		if (descending)
 			return new SuccessDataResult<List<Category>>(
-				categoryDao.getByOrderByNameDesc(), 
+				categoryDao.getAllByOrderByNameDesc(), 
 				"Kategoriler azalan isim sırasına göre listelendi."
 			);
 		else
 			return new SuccessDataResult<List<Category>>(
-				categoryDao.getByOrderByNameAsc(), 
+				categoryDao.getAllByOrderByNameAsc(), 
 				"Kategoriler artan isim sırasına göre listelendi."
 			);
 	}
